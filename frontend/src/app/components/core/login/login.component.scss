@@ -1,0 +1,57 @@
+main.login-content {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 88%;
+
+.mat-form-field {
+  margin-bottom: 1rem;
+}
+div.left-part {
+  min-width: 50%;
+
+.error-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffd9d9;
+  color: #f65d50;
+  margin-bottom: 23px;
+  padding-left: 8px;
+
+div {
+  display: flex;
+  align-items: center;
+
+.mat-icon {
+  margin-right: 5px;
+}
+}
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0px 67px;
+
+.mat-error {
+  display: flex;
+  font-size: 0.9rem;
+
+.mat-icon {
+  margin-right: 3px;
+}
+}
+}
+}
+div.right-part {
+  background-color: mediumaquamarine;
+  display: flex;
+  justify-content: center;
+
+img {
+  max-width: 72%;
+}
+}
+}

@@ -1,0 +1,23 @@
+version: '2'
+services:
+  spring-app:
+    container_name: spring-app
+    build: ./backend
+    image: spring-app:latest
+    ports:
+      - 8005:8005
+    networks:
+      - spring-cloud-network
+
+  angular-app:
+    container_name: angular-app
+    build: ./frontend
+    image: angular-app:latest
+    ports:
+      - 4200:4200
+    networks:
+      - spring-cloud-network
+
+networks:
+  spring-cloud-network:
+    driver: bridge

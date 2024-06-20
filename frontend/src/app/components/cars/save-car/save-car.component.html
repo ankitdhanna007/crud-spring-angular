@@ -1,0 +1,65 @@
+@if (canEdit) {
+<section>
+<h2 mat-dialog-title>Update car entry</h2>
+@if(!dataLoaded) {
+Loading data ...
+}
+</section>
+} @else {
+<h2 mat-dialog-title>Create new car entry</h2>
+}
+
+<div>
+  @if (error_message) {
+  <div class="error-alert">
+    <div>
+      <mat-icon [inline]="true" color="warn">info</mat-icon>
+      <div>{{ error_message }}</div>
+          </div>
+          <button mat-icon-button (click)="error_message = ''">
+            <mat-icon>clear</mat-icon>
+          </button>
+        </div>
+  }
+
+  <form *ngIf="!canEdit || (canEdit && dataLoaded)" [formGroup]="carForm" (submit)="saveCar()">
+   <section>
+    <mat-form-field appearance="fill">
+      <mat-label>Name of the Car</mat-label>
+      <input matInput clickOutside formControlName="name" />
+    </mat-form-field>
+   </section>
+
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Transmission Type</mat-label>
+        <mat-select formControlName="transmission" >
+          @for (item of transmissionTypes; track item) {
+          <mat-option value="{{item}}">{{item}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </section>
+
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Price per day</mat-label>
+        <input type="number" matInput clickOutside formControlName="pricePerDay" />
+        <span matTextPrefix>$&nbsp;</span>
+      </mat-form-field>
+    </section>
+
+    <section>
+    <mat-form-field>
+      <mat-label>Year of Manufacture</mat-label>
+      <input type="number" matInput clickOutside formControlName="yearOfManufacture" />
+    </mat-form-field>
+    </section>
+
+    <section>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!carForm.valid">Proceed</button>
+        <button type="button" mat-raised-button color="primary" (click)="carForm.reset()" [disabled]="!carForm.touched">Clear</button>
+    </section>
+
+  </form>
+</div>

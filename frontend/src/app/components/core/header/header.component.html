@@ -1,0 +1,11 @@
+<header class="header-content">
+  <div class="left-part">
+    <div class="header-logo">
+      <div class="logo-text">Lease Cars Management</div>
+    </div>
+  </div>
+  <div class="right-part">
+    <button *ngIf="router.url == '/login'" [routerLink]="['/login']" mat-raised-button color="primary">Sign in</button>
+    <button *ngIf="router.url != '/login'"  type="button" mat-raised-button color="primary" (click)="signOut()">Sign out</button>
+  </div>
+</header>
